@@ -1,15 +1,33 @@
 ## Put comments here that give an overall description of what your
 ## functions do
 
-## Write a short comment describing this function
+## This function creates four functions for use with the two defined variables
 
 makeCacheMatrix <- function(x = matrix()) {
-
+     im <- NULL
+     set <- function(y) {
+          x <<- y
+          im <<- NULL
+     }
+     get <- function() x
+     setsoln <- function(solve) im <<- solve
+     getsoln <- function() im
+     list(set = set, get = get,
+          setsoln = setsoln,
+          getsoln = getsoln)
 }
 
 
-## Write a short comment describing this function
+## Calculates the inverse and stores it in im if im is NULL, returns im if im is not NULL
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+     im <- x$getsoln()
+     if(!is.null(im)) {
+          message("getting cached data")
+          return(im)
+     }
+     data <- x$get()
+     im <- solve(data, ...)
+     x$setsoln(im)
+     im
 }
