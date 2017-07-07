@@ -1,6 +1,3 @@
-## Put comments here that give an overall description of what your
-## functions do
-
 ## This function creates four functions for use with the two defined variables
 
 makeCacheMatrix <- function(x = matrix()) {
@@ -16,6 +13,7 @@ makeCacheMatrix <- function(x = matrix()) {
           setsoln = setsoln,
           getsoln = getsoln)
 }
+
 
 
 ## Calculates the inverse and stores it in im if im is NULL, returns im if im is not NULL
